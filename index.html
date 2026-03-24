@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Airport Parking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <img src="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/logos/HolidayExtras-logo-horizontal-transparent.svg"
+         alt="Holiday Extras" height="40">
+  </header>
+
+  <div class="banner">
+    <img class="banner-img" src="assets/banner.jpg" alt="">
+    <div class="banner-overlay">
+      <div class="banner-text">
+        <span class="banner-badge">🎰 AIRPORT JACKPOT</span>
+        <h1 class="banner-headline">Hit the Parking Jackpot!</h1>
+        <p class="banner-subline">Spin to win epic parking deals</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="arcade-machine">
+      <div class="arcade-screen">
+        <div class="screen-glow"></div>
+
+        <!-- Step 1: Slot Machine for dates -->
+        <div class="step" id="step1">
+          <h2 class="step-title">🎰 SPIN FOR YOUR DATES</h2>
+          <p class="step-desc">Pull the lever to spin the date reels!</p>
+
+          <div class="slot-machine">
+            <div class="slot-reels">
+              <div class="slot-reel" id="outDateReel">
+                <div class="reel-window">
+                  <div class="reel-symbols" id="outDateSymbols"></div>
+                </div>
+              </div>
+              <div class="slot-reel" id="inDateReel">
+                <div class="reel-window">
+                  <div class="reel-symbols" id="inDateSymbols"></div>
+                </div>
+              </div>
+            </div>
+            <div class="slot-labels">
+              <div class="slot-label">DROP-OFF</div>
+              <div class="slot-label">RETURN</div>
+            </div>
+          </div>
+
+          <button class="lever-btn" id="spinBtn">
+            <span class="lever-handle">🎮</span>
+            PULL LEVER
+          </button>
+        </div>
+
+        <!-- Step 2: Pinball flippers for times -->
+        <div class="step" id="step2" style="display:none;">
+          <h2 class="step-title">🕹️ FLIPPER TIME SELECTOR</h2>
+          <p class="step-desc">Tap the flippers to set your times!</p>
+
+          <div class="pinball-board">
+            <div class="time-selector">
+              <label class="time-label">DROP-OFF TIME</label>
+              <div class="flipper-zone">
+                <button class="flipper flipper-left" data-target="outTime" data-direction="-1">◀</button>
+                <div class="time-display" id="outTimeDisplay">06:00</div>
+                <button class="flipper flipper-right" data-target="outTime" data-direction="1">▶</button>
+              </div>
+            </div>
+
+            <div class="time-selector">
+              <label class="time-label">RETURN TIME</label>
+              <div class="flipper-zone">
+                <button class="flipper flipper-left" data-target="inTime" data-direction="-1">◀</button>
+                <div class="time-display" id="inTimeDisplay">12:00</div>
+                <button class="flipper flipper-right" data-target="inTime" data-direction="1">▶</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="continue-btn" id="continueFromTimes">LOCK IN TIMES 🔒</button>
+        </div>
+
+        <!-- Step 3: Arcade scoreboard confirmation -->
+        <div class="step" id="step3" style="display:none;">
+          <h2 class="step-title">🏆 HIGH SCORE SUMMARY</h2>
+          <p class="step-desc">Your parking quest details</p>
+
+          <div class="scoreboard">
+            <div class="score-line">
+              <span class="score-label">AIRPORT:</span>
+              <span class="score-value" id="summaryAirport">—</span>
+            </div>
+            <div class="score-line">
+              <span class="score-label">DROP-OFF:</span>
+              <span class="score-value" id="summaryOut">—</span>
+            </div>
+            <div class="score-line">
+              <span class="score-label">RETURN:</span>
+              <span class="score-value" id="summaryIn">—</span>
+            </div>
+            <div class="score-line score-total">
+              <span class="score-label">TOTAL DAYS:</span>
+              <span class="score-value" id="summaryDays">—</span>
+            </div>
+          </div>
+
+          <button class="launch-btn" id="launchSearch">
+            <span class="coin-icon">🪙</span>
+            INSERT COIN TO START
+            <span class="coin-icon">🪙</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="arcade-controls">
+        <div class="progress-coins">
+          <span class="coin" id="coin1">🪙</span>
+          <span class="coin" id="coin2">🪙</span>
+          <span class="coin" id="coin3">🪙</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden form for airport selection (if needed) -->
+    <div class="airport-selector" id="airportSelector" style="display:none;">
+      <label for="departAirport">Select Airport:</label>
+      <select id="departAirport" class="airport-select"></select>
+    </div>
+  </main>
+
+  <section class="usps">
+    <div class="container">
+      <div class="usp-grid">
+        <div class="usp-card">
+          <div class="usp-icon">🎮</div>
+          <h3 class="usp-title">Instant Wins</h3>
+          <p class="usp-desc">Book in seconds with our fast, fun interface</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon">💰</div>
+          <h3 class="usp-title">Jackpot Prices</h3>
+          <p class="usp-desc">Guaranteed best parking rates at every airport</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon">🏆</div>
+          <h3 class="usp-title">40+ Years</h3>
+          <p class="usp-desc">Trusted by millions of holiday makers</p>
+        </div>
+        <div class="usp-card">
+          <div class="usp-icon">⚡</div>
+          <h3 class="usp-title">Zero Hassle</h3>
+          <p class="usp-desc">Instant confirmation and easy cancellation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Holiday Extras. Less hassle. More holiday.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
